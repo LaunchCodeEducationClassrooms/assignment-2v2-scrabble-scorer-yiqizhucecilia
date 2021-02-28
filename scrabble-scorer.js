@@ -38,7 +38,7 @@ function initialPrompt() {
 }
 
 
-let simpleScorer= {name:"Simple Score", description:"Each letter is worth 1 point", scoreFunction:simpleScore};
+let simpleScorer= {name:"Simple Score", description:"Each letter is worth 1 point", scoringFunction:simpleScore};
 
 function simpleScore(word){
   word=word.toUpperCase();
@@ -49,22 +49,22 @@ function simpleScore(word){
   return letterPoints
 }
 
-let vowelBonusScorer={name:"Bonus Vowels", description:"Vowels are 3 pts, consonants are 1 pt", scoreFunction:vowelBonusScore};
+let vowelBonusScorer={name:"Bonus Vowels", description:"Vowels are 3 pts, consonants are 1 pt", scoringFunction:vowelBonusScore};
 
 function vowelBonusScore(word){
   word=word.toUpperCase();
   letterPoints=0
   for (i=0; i<word.length;i++){
-     if(word[i]== 'A'|word[i]== 'E'|word[i]== 'I'|word[i]== 'O'|word[i]== 'U'){
+     if(word[i]== 'A'|| word[i]== 'E'||word[i]== 'I'||word[i]== 'O'||word[i]== 'U'){
        letterPoints+=3
      }else{
        letterPoints+=1
      }
-     return letterPoints
   }
+   return letterPoints
 }
 
-let scrabbleScorer={name:"Scrabble", description:"The traditional scoring algorithm.", scoreFunction:scrabbleScore};
+let scrabbleScorer={name:"Scrabble", description:"The traditional scoring algorithm.", scoringFunction:scrabbleScore};
 
 function scrabbleScore(word) {
   word = word.toLowerCase();
