@@ -64,7 +64,7 @@ function vowelBonusScore(word){
   }
 }
 
-let scrabbleScorer={name:"Scrabble", description:"Original Score Methods", scoreFunction:scrabbleScore};
+let scrabbleScorer={name:"Scrabble", description:"The traditional scoring algorithm.", scoreFunction:scrabbleScore};
 
 function scrabbleScore(word) {
   word = word.toLowerCase();
@@ -76,11 +76,11 @@ function scrabbleScore(word) {
       }
     }
   }
-  return (letterPoints);
+  return letterPoints;
 }
 
 
-const scoringAlgorithms = [scrabbleScorer, vowelBonusScorer,scrabbleScore];
+const scoringAlgorithms = [simpleScorer, vowelBonusScorer,scrabbleScorer];
 
 function scorerPrompt() {
   console.log("Which scoring method would you like to use?")
@@ -90,7 +90,7 @@ function scorerPrompt() {
   }else if (num==1){console.log("Your Score for " +word +":" +scoringAlgorithms[1].scoreFunction(word))
   }else{console.log("Your Score for " + word +":" +scoringAlgorithms[2].scoreFunction(word))
   }
-
+  return num
 }
 
 function transform(object) {
@@ -112,6 +112,7 @@ let newPointStructure=transform(oldPointStructure);
 
 function runProgram() {
    initialPrompt();
+   scorerPrompt();
    
 }
 
